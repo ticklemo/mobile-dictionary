@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <title>Custom Mobile Css Menu</title>
+  <style>
+
+    body {
+      padding-top: 50px;
+      /* pixels for things you really wanna control - like from the ege of the screen */
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      /* forces it to stretch to the left and the right */
+      border-bottom: 1px solid #333;
+      width: 100%;
+      height: 50px;
+      background-color: #efefef;
+    }
+
+  /* cs multi selector */
+    nav .fa-bars {
+      position: fixed;
+      top: 0.7rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      /* rem good for font sizes akwats */
+    }
+
+    nav h1 {
+      padding-left: 0.4rem;
+    }
+
+    .mobile-menu-area {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      right: -350px;
+      width: 65vw;
+      height: 60vh;
+      /* vh and vw for ratio and responsive */
+      border: 1px solid #333;
+      background-color:rgba(255, 255, 255, 0.5);
+      padding: 5px;
+      /* display: none; */
+
+      /* css animations yo */
+      transition-property: right;
+      transition-duration: 0.2s;
+      transition-timing-function: linear;
+    }
+
+    .on-screen {
+      right: 0px;
+    }
+
+    .close-icon {
+      font-size: 2.5rem;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- container begins ENDS -->
+  <div class="container-fluid">
+
+    <div class="mobile-menu-area">
+      <i class="fa fa-times close-icon" aria-hidden="true"></i>
+    </div>
+    <!-- be careful, this will get hidden behind the fixed div lol -->
+
+    <nav>
+      <h1>Dictionary</h1>
+      <i class="fa fa-bars menu-icon" id="menuIcon" aria-hidden="true"></i>
+    </nav>
+
+  <!-- dummy content -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque eos magnam doloremque repudiandae dolorem fuga amet, nemo voluptatibus, atque quod. Amet consectetur reprehenderit architecto rem debitis ex repellendus commodi fugiat?</p>
+
+  </div>
+  <!-- container-fluid ENDS -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $('document').ready(function(){
+
+
+      // // Click events for opening and closing the menu
+      // $('.menu-icon').click(function(){
+      //   // show the mobile menu area
+      //   $('.mobile-menu-area').show();
+      // });
+      //
+      // $('.close-icon').click(function(){
+      //   // hide the mobile menu area
+      //   $('.mobile-menu-area').hide();
+      // });
+
+      $('.menu-icon').click(function(){
+        // show the mobile menu area
+        $('.mobile-menu-area').addClass('on-screen');
+      });
+
+      $('.close-icon').click(function(){
+        // hide the mobile menu area
+        $('.mobile-menu-area').removeClass('on-screen');
+      });
+    });
+  </script>
+</body>
+</html>
