@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <title>Custom Mobile CSS Menu</title>
+  <style>
+
+    body {
+      padding-top: 50px;
+      background-color: #1e1f21;
+      /* pixels for things you really wanna control - like from the ege of the screen */
+    }
+
+    h1, h2, h4, p, li, .accordion-button-collapsed, .accordion-button-collapsed::after {
+      color: #f0eee1;
+    }
+
+    nav {
+      background-color: powderblue;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      /* forces it to stretch to the left and the right */
+      border-bottom: 1px solid #333;
+      width: 100%;
+      height: 50px;
+    }
+
+  /* cs multi selector */
+    nav .fa-bars {
+      position: fixed;
+      top: 0.7rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      /* rem good for font sizes akwats */
+    }
+
+    nav h1 {
+      padding-left: 0.4rem;
+      color: #1e1f21;
+      margin-top: 5px;
+      margin-left: 9px;
+    }
+
+    .mobile-menu-area {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      right: -350px;
+      width: 65vw;
+      height: 60vh;
+      /* vh and vw for ratio and responsive */
+      border: 1px solid #333;
+      background-color:rgba(255, 255, 255, 0.5);
+      padding: 5px;
+      /* display: none; */
+
+      /* css animations yo */
+      transition-property: right;
+      transition-duration: 0.2s;
+      transition-timing-function: linear;
+    }
+
+    .on-screen {
+      right: 0px;
+    }
+
+    .close-icon {
+      font-size: 2.5rem;
+    }
+
+    .dynamism {
+      margin-top: 37px;
+    }
+
+      /* word title */
+    .dynamism h1 {
+      display: inline;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+
+    /* noun subheading */
+    .dynamism h2 {
+      color: powderblue;
+      display: inline;
+      padding-left: 7px;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    /* pronounciation subheading */
+    .dynamism h4 {
+      margin-top: 5px;
+      padding-bottom: 10px;
+      /* adding padding to the bottom pushes the border down for some nice spacing */
+      border-bottom: 1.5px solid powderblue;
+    }
+
+    .spacing {
+      padding:5px;
+    }
+
+    li {
+      padding-top: 20px;
+    }
+    .accordion-button::after {
+      background-color: #f0eee1;
+      border-radius: 50%;
+      background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e);
+  }
+
+  .accordion-button {
+    color: powderblue;
+    border: 1.5px solid #f0eee1;
+  }
+
+  .accordion-button.collapsed {
+    border-bottom-width: 1.5px;
+  }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- container begins ENDS -->
+  <div class="container-fluid">
+
+    <div class="mobile-menu-area">
+      <i class="fa fa-times close-icon" aria-hidden="true"></i>
+    </div>
+    <!-- be careful, this will get hidden behind the fixed div lol -->
+
+    <nav>
+      <h1>Dictionary</h1>
+      <i class="fa fa-bars menu-icon" id="menuIcon" aria-hidden="true"></i>
+    </nav>
+
+    <!-- <div class="dynamism">
+      <div class="wrap">
+        <h1>Dynamism</h1>
+        <h2>noun</h2>
+        <h4>dy·​na·​mism <span class="spacing">•</span> dī-nə-ˌmi-zəm</h4>
+        <ol>
+          <li class="one">the quality of being characterized by vigorous activity and progress.</li>
+          <li class="two">the quality of being dynamic and positive in attitude.</li>
+        </ol>
+      </div> -->
+      <!-- wrap ends -->
+    <!-- </div> -->
+    <!-- dynamism class ends -->
+
+    <!-- accordion version -->
+    <div class="accordion dynamism" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            guess what word i chose!
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h1>Dynamism</h1>
+            <h2>noun</h2>
+          </div>
+          <!-- end accordion-body -->
+        </div>
+        <!-- end first collapse -->
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            ok but how do you pronounce that
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h4>dy·​na·​mism <span class="spacing">•</span> dī-nə-ˌmi-zəm</h4>
+          </div>
+          <!-- body ends -->
+        </div>
+        <!-- collapse ends -->
+      </div>
+      <!-- item ends -->
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            sure but what does it mean?
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <ol>
+              <li class="one">the quality of being characterized by vigorous activity and progress.</li>
+              <li class="two">the quality of being dynamic and positive in attitude.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+            show me that all at once!
+          </button>
+        </h2>
+        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <div class="dynamism">
+              <div class="wrap">
+                <h1>Dynamism</h1>
+                <h2>noun</h2>
+                <h4>dy·​na·​mism <span class="spacing">•</span> dī-nə-ˌmi-zəm</h4>
+                <ol>
+                  <li class="one">the quality of being characterized by vigorous activity and progress.</li>
+                  <li class="two">the quality of being dynamic and positive in attitude.</li>
+                </ol>
+              </div>
+              <!-- wrap ends -->
+            </div>
+            <!-- dynamism ends -->
+          </div>
+          <!-- accordion body ends -->
+        </div>
+        <!-- collapse four ends -->
+      </div>
+      <!-- accordion item ends -->
+
+    </div>
+    <!-- whole accordion ends -->
+
+  <!-- dummy content -->
+    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque eos magnam doloremque repudiandae dolorem fuga amet, nemo voluptatibus, atque quod. Amet consectetur reprehenderit architecto rem debitis ex repellendus commodi fugiat?</p> -->
+
+  </div>
+  <!-- container-fluid ENDS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $('document').ready(function(){
+
+
+      // // Click events for opening and closing the menu
+      // $('.menu-icon').click(function(){
+      //   // show the mobile menu area
+      //   $('.mobile-menu-area').show();
+      // });
+      //
+      // $('.close-icon').click(function(){
+      //   // hide the mobile menu area
+      //   $('.mobile-menu-area').hide();
+      // });
+
+      $('.menu-icon').click(function(){
+        // show the mobile menu area
+        $('.mobile-menu-area').addClass('on-screen');
+      });
+
+      $('.close-icon').click(function(){
+        // hide the mobile menu area
+        $('.mobile-menu-area').removeClass('on-screen');
+      });
+    });
+  </script>
+</body>
+</html>
